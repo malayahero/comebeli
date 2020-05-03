@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-
+use App\User;
 class ProductController extends Controller
 {
     //
-
-
     public function product(){
     	$product = Product::all();
     	return view('Users.product',compact('product'));
@@ -31,7 +29,7 @@ class ProductController extends Controller
     }
 
     public function addproductpage(){
-    	return view('admin.addproduct');
+    	return view('admin.addproduct',compact('product'));
     }
 
      public function edit($id){
@@ -40,14 +38,16 @@ class ProductController extends Controller
     }
 
     public function addproduct(){
-     $product = Product::update(request(['product_name' => 'product_name','product_description' => 'product_description','sku_number' => 'sku_number','spu_number' => 'spu_number','product_quantity' =>'product_quantity','product_price' => 'product_price','product_cost' => 'product_cost','product_size' => 'product_size','supplier' => 'supplier','warehouse' => 'warehouse']));
-           return redirect('/admin',compact('product'));
-
+     $product = Product::create(request(['product_name' => 'product_name','product_description' => 'product_description','sku_number' => 'sku_number','spu_number' => 'spu_number','product_quantity' =>'product_quantity','product_price' => 'product_price','product_cost' => 'product_cost','product_size' => 'product_size','supplier' => 'supplier','warehouse' => 'warehouse']));
+           // return redirect('/admin',compact('product'));
+             return dd($product);
           }
 
-     public function updateproduct(){
-       $product = Product::update(request(['product_name' => 'product_name','product_description' => 'product_description','sku_number' => 'sku_number','spu_number' => 'spu_number','product_quantity' =>'product_quantity','product_price' => 'product_price','product_cost' => 'product_cost','product_size' => 'product_size','supplier' => 'supplier','warehouse' => 'warehouse']));
-    	return redirect('/admin',compact('product'));
+     public function updateproduct($id){
+        $product = Product::findOrFail($id);
+        $product->update(request(['product_name' => 'product_name','product_description' => 'product_description','sku_number' => 'sku_number','spu_number' => 'spu_number','product_quantity' =>'product_quantity','product_price' => 'product_price','product_cost' => 'product_cost','product_size' => 'product_size','supplier' => 'supplier','warehouse' => 'warehouse']));
+    	// return redirect('/admin',compact('product'));
+            return dd($product);
         // return redirect('/');
     }
 

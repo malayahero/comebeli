@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/','U@product');
+Route::get('/','ProductController@index');
 Route::get('/shop/{product}','UserController@show');
 Route::get('/admin/product/addproduct','ProductController@addproductpage');
 Route::post('/admin/product','ProductController@addproduct');

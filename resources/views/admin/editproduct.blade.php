@@ -2,52 +2,55 @@
 <html>
 	<head></head>
 	<body>
-		
-		<form method="post" action="/admin/product/">
-			@method('PATCH')
+		<h1>Update Product:</h1>
+		<form method="post" action="/admin/product/{{$product->id}}">
 			@csrf
+			@method('PATCH')
 			<label for="product_name">Product Name:</label>
 			<input type="text" name="product_name" value="{{$product->product_name}}">
-
+    		<br />
 			<label for="product_description">Product Description:</label>
-			<textarea name="product_description">{{$product->product_description}}</textarea>
-
-			<label for="sku_number">Sku Number</label>
+			<textarea name="product_description" >{{$product->product_description}}</textarea>
+			<br />
+			<label for="sku_number">Sku Number:</label>
 			<input type="Number" name="sku_number" value="{{$product->sku_number}}">
-
-			<label for="spu_numbber">Spu Number</label>
-			<input type="Number" name="spu_numbber" value="{{$product->spu_number}}">
-
-			<label for="product_quantity">Product Quantity</label>
+			<br />
+			<label for="spu_number">Spu Number:</label>
+			<input type="Number" name="spu_number" value="{{$product->spu_number}}">
+			<br />
+			<label for="product_quantity">Product Quantity:</label>
 			<input type="Number" name="product_quantity" value="{{$product->product_quantity}}">
-
-			<label for="product_cost">Product Cost</label>
+			<br />
+			<label for="product_cost">Product Cost:</label>
 			<input type="Number" name="product_cost" value="{{$product->product_cost}}">
-
-			<label for="product_price">Product Price</label>
+			<br />
+			<label for="product_price">Product Price:</label>
 			<input type="Number" name="product_price" value="{{$product->product_price}}">
-
-			<label for="product_size">Product Size</label>
+			<br />
+			<label for="product_size">Product Size:</label>
 			<input type="text" name="product_size" value="{{$product->product_size}}">
-
-			
-			<label for="supplier">Choose A Supplier:</label>
-				<select id="cars" name="supplier" >
+			<br />
+		   <label for="Supplier">Choose A Supplier:</label>
+				<select id="supplier" name="supplier" value="{{$product->supplier}}" >
 				  <option value="ChinaBrands">ChinaBrands</option>
 				  <option value="Alibaba">Alibaba</option>
 				  <option value="MalaysiaB2B">MalaysiaB2B</option>
-				  <option value="audi">Audi</option>
+				  <option value="Own Product">Own Product</option>
 				</select>
-
-			<label for="warehouse">Choose A Supplier:</label>
-				<select id="cars" name="warehouse" >
+				<br />
+			<label for="warehouse">Choose A warehouse:</label>
+				<select id="warehouse" name="warehouse" value="{{$product->warehouse}}" >
 				  <option value="ChinaBrands">ChinaBrands</option>
 				  <option value="Alibaba">Alibaba</option>
 				  <option value="MalaysiaB2B">MalaysiaB2B</option>
-				  <option value="audi">Audi</option>
+				  <option value="Own Product">Malaysia</option>
 				</select>
+				<br />
 			<button type="submit">submit</button>
 		</form>
 		
+		<form>
+			<button>Delete</button>
+		</form>
 	</body>
 </html>
