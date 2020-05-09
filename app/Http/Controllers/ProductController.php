@@ -38,7 +38,7 @@ class ProductController extends Controller
     }
 
     public function addproduct(){
-     $product = Product::create(request(['product_name' => 'product_name','product_description' => 'product_description','sku_number' => 'sku_number','spu_number' => 'spu_number','product_quantity' =>'product_quantity','product_price' => 'product_price','product_cost' => 'product_cost','product_size' => 'product_size','supplier' => 'supplier','warehouse' => 'warehouse']));
+     $product = Product::create(request(['product_name' => 'product_name','product_description' => 'product_description','sku_number' => 'sku_number','spu_number' => 'spu_number','product_quantity' =>'product_quantity','product_price' => 'product_price','product_cost' => 'product_cost','product_size' => 'product_size','supplier' => 'supplier','warehouse' => 'warehouse','product_photos->hasfile()' => 'product_photos']));
            // return redirect('/admin',compact('product'));
              return dd($product);
           }

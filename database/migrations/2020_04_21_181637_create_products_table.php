@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->string('product_size');
             $table->string('supplier');
             $table->string('warehouse');
+            $table->string('product_photos');
             // $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

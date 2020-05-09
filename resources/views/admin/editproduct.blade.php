@@ -30,6 +30,11 @@
 			<label for="product_size">Product Size:</label>
 			<input type="text" name="product_size" value="{{$product->product_size}}">
 			<br />
+			<div class="custom-file">
+		    <input type="file" class="custom-file-input" name="product_photos" id="customFile">
+		    <label class="custom-file-label" for="customFile">Choose file</label>
+		  </div>
+		  <br />
 		   <label for="Supplier">Choose A Supplier:</label>
 				<select id="supplier" name="supplier" value="{{$product->supplier}}" >
 				  <option value="ChinaBrands">ChinaBrands</option>

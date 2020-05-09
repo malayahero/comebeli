@@ -10,7 +10,7 @@ class RegistrationController extends Controller
 {
     public function create()
     {
-        return view('Users.registration');
+        return view('Users.UserLogin.registration');
     }
     
     public function store()
