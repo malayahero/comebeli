@@ -15,6 +15,7 @@ class CreateAdminrolesTable extends Migration
     {
         Schema::create('adminroles', function (Blueprint $table) {
             $table->id();
+            $table->string();
             $table->timestamps();
         });
     }

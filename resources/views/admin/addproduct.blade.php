@@ -1,10 +1,7 @@
-<!DOCTYPE>
-<html>
-	<head></head>
-	<body>
-		<h1>Add Product</h1>
-		<form method="post" action="/admin/product">
-			@csrf			
+@extends('layouts.admin.master')
+@section('content-form')	
+		<form method="post" action="{{route('addproductPage')}}">
+			@csrf		
 			<div class="form-group">
 			<label for="product_name">Product Name:</label>
 			<input type="text" name="product_name">
@@ -47,7 +44,7 @@
 			<br />
 			<div class="custom-file">
 		    <input type="file" class="custom-file-input" name="product_photos" id="customFile">
-		    <label class="custom-file-label" for="customFile">Choose file</label>
+		    <label class="custom-file-label" for="customFile">Choose a file</label>
 		  </div>
 		  <br />
 			<div class="form-group">
@@ -72,6 +69,5 @@
 				<br />
 			<button type="submit">submit</button>
 		</form>
-		
-	</body>
-</html>
+	
+@endsection

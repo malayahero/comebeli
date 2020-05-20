@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('user_id')->nullable()->unsigned();
+            $table->unsignedBigInteger('user_id')->nullable()->unsigned();
             $table->string('product_name');
             $table->longtext('product_description');
             $table->integer('sku_number');
@@ -27,7 +27,7 @@ class CreateProductsTable extends Migration
             $table->string('supplier');
             $table->string('warehouse');
             $table->string('product_photos');
-            // $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
